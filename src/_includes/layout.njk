@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title or "Coherence" }}</title>
+    <meta name="description" content="{{ description or "A bounded-claim machine for software engineering." }}">
+    <link rel="stylesheet" href="/assets/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Coherence</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/docs/">Docs</a>
+        <a href="/blog/">Blog</a>
+        <a href="/ideas/">Ideas</a>
+        <a href="https://github.com/usecoherence/coherence">GitHub</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      {{ content | safe }}
+    </main>
+  </body>
+</html>
