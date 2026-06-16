@@ -191,6 +191,58 @@ The slice is queried from Dolt whenever it is needed. It does not have to become
 
 The DSL is an editing interface over Dolt rows.
 
+### What the editable projection looks like
+
+For example, a changelist affecting the Payment API may be materialized as:
+
+```rust
+coherence_slice! {
+    changelist "payment-api-auth-change" {
+        spec "product/payment-api" {
+            title: "Payment API"
+            level: System
+            status: Active
+
+            links {
+                depends_on "security/authentication"
+                constrained_by "compliance/pci-dss"
+            }
+
+            ac "requires-authenticated-client" {
+                title: "Requires an authenticated client"
+                intent: "Unauthenticated payment requests are rejected"
+                risk: High
+                concerns: [Correctness, Security]
+
+                links {
+                    implemented_by file "backend/payment.rs"
+                    verified_by test "cargo test rejects_anonymous_payment"
+                    verified_by feature "features/payment.feature"
+                }
+            }
+        }
+
+        context {
+            spec "security/authentication" {
+                title: "Authentication"
+            }
+
+            spec "compliance/pci-dss" {
+                title: "PCI DSS compliance"
+            }
+        }
+    }
+}
+```
+
+The `Payment API` spec is editable because it belongs to this changelist.
+
+`Authentication` and `PCI DSS compliance` are included as context. They help the reviewer understand the surrounding graph, but this changelist does not modify them.
+
+The DSL does not duplicate the database or become another source of truth. It is a temporary, deterministic projection of the selected Dolt graph slice.
+
+The user edits this projection. Coherence validates it, translates the semantic change into SQL mutations, and applies those mutations to the working set of the changelist branch.
+
 ```text
 Dolt rows
 → graph slice
