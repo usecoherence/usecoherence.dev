@@ -19,6 +19,10 @@ Specs describe intent. Plans execute checks. Runs produce evidence. Humans revie
     <strong>Blog</strong>
     <span>Essays about building and using Coherence.</span>
   </a>
+  <a class="card" href="/cases/">
+    <strong>Cases</strong>
+    <span>Real-world scenarios and how Coherence addresses them.</span>
+  </a>
   <a class="card" href="/ideas/">
     <strong>Ideas</strong>
     <span>Raw thinking, notes, and design sketches.</span>

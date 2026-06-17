@@ -12,18 +12,112 @@
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #15130f;
-    --ink: #f5ead7;
-    --muted: #b8ab98;
-    --line: #393126;
-    --accent: #f08a66;
-    --panel: #1f1b15;
-    --code-bg: #2c251c;
-    --pre-bg: #0c0b09;
-    --pre-ink: #fff3dd;
-  }
+html.dark {
+  --bg: #15130f;
+  --ink: #f5ead7;
+  --muted: #b8ab98;
+  --line: #393126;
+  --accent: #f08a66;
+  --panel: #1f1b15;
+  --code-bg: #2c251c;
+  --pre-bg: #0c0b09;
+  --pre-ink: #fff3dd;
+}
+
+/* ── Slate ───────────────────── */
+:root[data-palette="slate"] {
+  --bg: #eef1f5;
+  --ink: #17191c;
+  --muted: #5a6575;
+  --line: #cdd5df;
+  --accent: #3b6ea5;
+  --panel: #f6f8fa;
+  --code-bg: #dbdfe6;
+  --pre-bg: #1b1e24;
+  --pre-ink: #edf1f8;
+}
+html.dark[data-palette="slate"] {
+  --bg: #121418;
+  --ink: #e2e8f0;
+  --muted: #8895a8;
+  --line: #2a3040;
+  --accent: #6d9fd6;
+  --panel: #1a1d26;
+  --code-bg: #242836;
+  --pre-bg: #0b0d12;
+  --pre-ink: #e8edf5;
+}
+
+/* ── Forest ──────────────────── */
+:root[data-palette="forest"] {
+  --bg: #eef5ed;
+  --ink: #151c16;
+  --muted: #5a7058;
+  --line: #c5d8c3;
+  --accent: #367a3f;
+  --panel: #f5faf3;
+  --code-bg: #d4e0d2;
+  --pre-bg: #141e16;
+  --pre-ink: #e9f5e7;
+}
+html.dark[data-palette="forest"] {
+  --bg: #111612;
+  --ink: #dde8dc;
+  --muted: #7a9677;
+  --line: #253825;
+  --accent: #55a65e;
+  --panel: #192318;
+  --code-bg: #1e3020;
+  --pre-bg: #0a100c;
+  --pre-ink: #e2f0df;
+}
+
+/* ── Rust ────────────────────── */
+:root[data-palette="rust"] {
+  --bg: #f7f0ea;
+  --ink: #1c1815;
+  --muted: #756657;
+  --line: #ddcebd;
+  --accent: #a55324;
+  --panel: #fcf4eb;
+  --code-bg: #e5d7c9;
+  --pre-bg: #231c16;
+  --pre-ink: #f7efe2;
+}
+html.dark[data-palette="rust"] {
+  --bg: #161210;
+  --ink: #ede0d2;
+  --muted: #a38976;
+  --line: #3d3228;
+  --accent: #d47a48;
+  --panel: #201b15;
+  --code-bg: #31281e;
+  --pre-bg: #0c0a08;
+  --pre-ink: #eee5d6;
+}
+
+/* ── Lavender ────────────────── */
+:root[data-palette="lavender"] {
+  --bg: #f1eef5;
+  --ink: #1a181c;
+  --muted: #665e75;
+  --line: #cfc7db;
+  --accent: #6b4f9e;
+  --panel: #f7f4fa;
+  --code-bg: #dbd3e6;
+  --pre-bg: #1a1720;
+  --pre-ink: #eeebf5;
+}
+html.dark[data-palette="lavender"] {
+  --bg: #131116;
+  --ink: #e5deee;
+  --muted: #887ba0;
+  --line: #322b42;
+  --accent: #9a7fce;
+  --panel: #1c1924;
+  --code-bg: #2b2638;
+  --pre-bg: #0b0a10;
+  --pre-ink: #e7e1f2;
 }
 
 * {
@@ -77,6 +171,48 @@ a {
   color: var(--accent);
 }
 
+.theme-toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.theme-toggle:hover,
+.palette-pick:hover {
+  background: var(--code-bg);
+  color: var(--ink);
+}
+
+.palette-pick {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
 .content {
   max-width: 820px;
   margin: 0 auto;
@@ -105,6 +241,21 @@ p,
 ul,
 ol {
   max-width: 680px;
+}
+
+blockquote {
+  max-width: 680px;
+  margin: 1.5rem 0;
+  padding: 0.25rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  background: var(--panel);
+  border-radius: 0 10px 10px 0;
+  color: var(--muted);
+}
+
+blockquote p {
+  margin: 0.5rem 0;
+  max-width: none;
 }
 
 .lede {
@@ -221,54 +372,51 @@ pre code {
   cursor: help;
 }
 
-@media (prefers-color-scheme: dark) {
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    color: #7a6f5a;
-  }
-  .token.punctuation {
-    color: #9a8c77;
-  }
-  .token.property,
-  .token.tag,
-  .token.boolean,
-  .token.number,
-  .token.constant,
-  .token.symbol,
-  .token.deleted {
-    color: #e8986a;
-  }
-  .token.selector,
-  .token.attr-name,
-  .token.string,
-  .token.char,
-  .token.builtin,
-  .token.inserted {
-    color: #9bc47a;
-  }
-  .token.operator,
-  .token.entity,
-  .token.url,
-  .language-css .token.string,
-  .style .token.string {
-    color: #c8b070;
-  }
-  .token.atrule,
-  .token.attr-value,
-  .token.keyword {
-    color: #c4817a;
-  }
-  .token.function,
-  .token.class-name {
-    color: #7aa8c4;
-  }
-  .token.regex,
-  .token.important,
-  .token.variable {
-    color: #d0b06c;
-  }
+html.dark .token.comment,
+html.dark .token.prolog,
+html.dark .token.doctype,
+html.dark .token.cdata {
+  color: #7a6f5a;
+}
+html.dark .token.punctuation {
+  color: #9a8c77;
+}
+html.dark .token.property,
+html.dark .token.tag,
+html.dark .token.boolean,
+html.dark .token.constant,
+html.dark .token.symbol,
+html.dark .token.deleted {
+  color: #e8986a;
+}
+html.dark .token.selector,
+html.dark .token.attr-name,
+html.dark .token.string,
+html.dark .token.char,
+html.dark .token.builtin,
+html.dark .token.inserted {
+  color: #9bc47a;
+}
+html.dark .token.operator,
+html.dark .token.entity,
+html.dark .token.url,
+html.dark .language-css .token.string,
+html.dark .style .token.string {
+  color: #c8b070;
+}
+html.dark .token.atrule,
+html.dark .token.attr-value,
+html.dark .token.keyword {
+  color: #c4817a;
+}
+html.dark .token.function,
+html.dark .token.class-name {
+  color: #7aa8c4;
+}
+html.dark .token.regex,
+html.dark .token.important,
+html.dark .token.variable {
+  color: #d0b06c;
 }
 
 @media (max-width: 640px) {

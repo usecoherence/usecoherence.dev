@@ -6,6 +6,21 @@
     <title>{{ title or "Coherence" }}</title>
     <meta name="description" content="{{ description or "A bounded-claim machine for software engineering." }}">
     <link rel="stylesheet" href="/assets/style.css">
+    <script>
+      (function() {
+        var theme = localStorage.getItem("theme");
+        if (!theme) {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+        var palette = localStorage.getItem("palette");
+        if (palette) {
+          document.documentElement.setAttribute("data-palette", palette);
+        }
+      })();
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -13,13 +28,37 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="/docs/">Docs</a>
         <a href="/blog/">Blog</a>
+        <a href="/cases/">Cases</a>
         <a href="/ideas/">Ideas</a>
         <a href="https://github.com/usecoherence/coherence">GitHub</a>
       </nav>
+      <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">&#9790;</button>
+      <button class="palette-pick" aria-label="Pick a color palette" onclick="randomPalette()">&#9670;</button>
     </header>
 
     <main class="content">
       {{ content | safe }}
     </main>
+
+    <script>
+      function toggleTheme() {
+        var html = document.documentElement;
+        var isDark = html.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+
+      var palettes = ["default", "slate", "forest", "rust", "lavender"];
+
+      function randomPalette() {
+        var html = document.documentElement;
+        var current = html.getAttribute("data-palette") || "default";
+        var next;
+        do {
+          next = palettes[Math.floor(Math.random() * palettes.length)];
+        } while (next === current && palettes.length > 1);
+        html.setAttribute("data-palette", next === "default" ? "" : next);
+        localStorage.setItem("palette", next === "default" ? "" : next);
+      }
+    </script>
   </body>
 </html>
