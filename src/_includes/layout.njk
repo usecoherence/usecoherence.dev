@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title or "Coherence" }}</title>
     <meta name="description" content="{{ description or "A bounded-claim machine for software engineering." }}">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/style.css?v={{ cssHash }}">
     <script>
       (function() {
         var theme = localStorage.getItem("theme");
@@ -36,9 +36,35 @@
       <button class="palette-pick" aria-label="Pick a color palette" onclick="randomPalette()">&#9670;</button>
     </header>
 
-    <main class="content">
-      {{ content | safe }}
-    </main>
+    {% set section = "Page" %}
+    {% if page.url == "/" %}
+      {% set section = "Home" %}
+    {% elif page.url.startsWith("/docs/") %}
+      {% set section = "Docs" %}
+    {% elif page.url.startsWith("/blog/") %}
+      {% set section = "Blog" %}
+    {% elif page.url.startsWith("/cases/") %}
+      {% set section = "Case" %}
+    {% elif page.url.startsWith("/ideas/") %}
+      {% set section = "Idea" %}
+    {% endif %}
+
+    <div class="page-shell">
+      <main class="content">
+        {% if page.url != "/" %}
+          <div class="article-kicker">
+            <span>{{ section }}</span>
+            {% if page.url.includes("draft") %}<span>Draft</span>{% else %}<span>Published</span>{% endif %}
+          </div>
+        {% endif %}
+        {{ content | safe }}
+      </main>
+
+      <aside class="toc" aria-label="Table of contents" hidden>
+        <div class="toc-title">On this page</div>
+        <nav class="toc-nav"></nav>
+      </aside>
+    </div>
 
     <script>
       function toggleTheme() {
@@ -59,6 +85,32 @@
         html.setAttribute("data-palette", next === "default" ? "" : next);
         localStorage.setItem("palette", next === "default" ? "" : next);
       }
+
+      (function buildToc() {
+        var toc = document.querySelector(".toc");
+        var nav = document.querySelector(".toc-nav");
+        if (!toc || !nav) return;
+
+        var headings = Array.prototype.slice.call(document.querySelectorAll(".content h2, .content h3"));
+        if (headings.length < 2) return;
+
+        headings.forEach(function(heading) {
+          if (!heading.id) {
+            heading.id = heading.textContent
+              .toLowerCase()
+              .replace(/[^a-z0-9]+/g, "-")
+              .replace(/^-|-$/g, "");
+          }
+
+          var link = document.createElement("a");
+          link.href = "#" + heading.id;
+          link.textContent = heading.textContent;
+          link.className = "toc-link toc-link-" + heading.tagName.toLowerCase();
+          nav.appendChild(link);
+        });
+
+        toc.hidden = false;
+      })();
     </script>
   </body>
 </html>

@@ -45,7 +45,7 @@ git rebase -i --autosquash main
 Result:
 
 ```text
-A  → A'
+A  → A
 B  → B'
 C  → C'
 ```
@@ -69,7 +69,7 @@ Git represents it only as immutable snapshots:
 A → B → C
 ```
 
-The semantic relation between the requirement and commit `B` exists nowhere.
+Git does not represent the semantic relation between the requirement and commit `B` as a first-class relation.
 
 ### 3. Typical solution
 
