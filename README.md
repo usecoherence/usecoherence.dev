@@ -22,4 +22,3 @@ npm run deploy   # build + rsync to pgs.sh
 
 - Site: https://usecoherence.dev
 - Source: https://github.com/usecoherence/coherence
-- GitHub: https://github.com/usecoherence/usecoherence.dev
