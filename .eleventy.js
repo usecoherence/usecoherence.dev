@@ -13,6 +13,10 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/_headers");
 
+  eleventyConfig.addFilter("split", function(str, sep) {
+    return str.split(sep);
+  });
+
   return {
     dir: {
       input: "src",

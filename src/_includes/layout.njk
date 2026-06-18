@@ -24,16 +24,20 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">Coherence</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="/docs/">Docs</a>
-        <a href="/blog/">Blog</a>
-        <a href="/cases/">Cases</a>
-        <a href="/ideas/">Ideas</a>
-        <a href="https://github.com/usecoherence/coherence">GitHub</a>
-      </nav>
-      <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">&#9790;</button>
-      <button class="palette-pick" aria-label="Pick a color palette" onclick="randomPalette()">&#9670;</button>
+      <div class="site-header-row">
+        <a class="brand" href="/">Coherence</a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="/docs/">Docs</a>
+          <a href="/blog/">Blog</a>
+          <a href="/cases/">Cases</a>
+          <a href="/ideas/">Ideas</a>
+          <a href="https://github.com/usecoherence/coherence">GitHub</a>
+        </nav>
+        <div class="header-tools">
+          <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">&#127763;</button>
+          <button class="palette-pick" aria-label="Pick a color palette" onclick="randomPalette()">&#127912;</button>
+        </div>
+      </div>
     </header>
 
     {% set section = "Page" %}
@@ -56,6 +60,21 @@
             <span>{{ section }}</span>
             {% if page.url.includes("draft") %}<span>Draft</span>{% else %}<span>Published</span>{% endif %}
           </div>
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="/">Home</a>
+            {%- set parts = page.url | split("/") -%}
+            {%- set full = "" -%}
+            {%- for part in parts -%}
+              {%- if part -%}
+                {%- set full = full + part + "/" -%}
+                {%- if page.url == "/" + full -%}
+                  <span aria-current="page">{{ title }}</span>
+                {%- else -%}
+                  <a href="/{{ full }}">{{ part | replace("-", " ") | capitalize }}</a>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </nav>
         {% endif %}
         {{ content | safe }}
       </main>
