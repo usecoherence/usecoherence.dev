@@ -14,3 +14,4 @@ Code quality is often treated as taste until it fails. Coherence treats it as a 
 - [Enforcing dependency direction](/cases/code-quality/enforcing-architectural-boundaries/) — an HTTP handler bypasses the application layer and imports a database repository directly
 - [Making readability observable](/cases/code-quality/making-readability-verifiable/) — a method grows from 10 to 230 lines; tests still pass, but the cost of change has increased
 - [Verifying abstraction boundaries](/cases/code-quality/verifying-abstraction-boundaries/) — four unrelated business rules share one abstraction; the code no longer reflects domain distinctions
+- [Detecting low cohesion](/cases/code-quality/detecting-low-cohesion/) — one business decision duplicated across five entry points; no single boundary owns the operation
