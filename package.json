@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy",
+    "build": "node scripts/generate-palettes.mjs && eleventy",
     "deploy": "npm run build && node --import ./scripts/load-env.mjs ./scripts/deploy-pgs.mjs",
     "dns:setup": "node --import ./scripts/load-env.mjs scripts/setup-cloudflare-dns.mjs"
   },

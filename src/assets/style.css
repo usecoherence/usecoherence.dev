@@ -29,100 +29,8 @@ html.dark {
   --pre-ink: #fff3dd;
 }
 
-/* ── Slate ───────────────────── */
-:root[data-palette="slate"] {
-  --bg: #eef1f5;
-  --ink: #17191c;
-  --muted: #5a6575;
-  --line: #cdd5df;
-  --accent: #3b6ea5;
-  --panel: #f6f8fa;
-  --code-bg: #dbdfe6;
-  --pre-bg: #1b1e24;
-  --pre-ink: #edf1f8;
-}
-html.dark[data-palette="slate"] {
-  --bg: #121418;
-  --ink: #e2e8f0;
-  --muted: #8895a8;
-  --line: #2a3040;
-  --accent: #6d9fd6;
-  --panel: #1a1d26;
-  --code-bg: #242836;
-  --pre-bg: #0b0d12;
-  --pre-ink: #e8edf5;
-}
-
-/* ── Forest ──────────────────── */
-:root[data-palette="forest"] {
-  --bg: #eef5ed;
-  --ink: #151c16;
-  --muted: #5a7058;
-  --line: #c5d8c3;
-  --accent: #367a3f;
-  --panel: #f5faf3;
-  --code-bg: #d4e0d2;
-  --pre-bg: #141e16;
-  --pre-ink: #e9f5e7;
-}
-html.dark[data-palette="forest"] {
-  --bg: #111612;
-  --ink: #dde8dc;
-  --muted: #7a9677;
-  --line: #253825;
-  --accent: #55a65e;
-  --panel: #192318;
-  --code-bg: #1e3020;
-  --pre-bg: #0a100c;
-  --pre-ink: #e2f0df;
-}
-
-/* ── Rust ────────────────────── */
-:root[data-palette="rust"] {
-  --bg: #f7f0ea;
-  --ink: #1c1815;
-  --muted: #756657;
-  --line: #ddcebd;
-  --accent: #a55324;
-  --panel: #fcf4eb;
-  --code-bg: #e5d7c9;
-  --pre-bg: #231c16;
-  --pre-ink: #f7efe2;
-}
-html.dark[data-palette="rust"] {
-  --bg: #161210;
-  --ink: #ede0d2;
-  --muted: #a38976;
-  --line: #3d3228;
-  --accent: #d47a48;
-  --panel: #201b15;
-  --code-bg: #31281e;
-  --pre-bg: #0c0a08;
-  --pre-ink: #eee5d6;
-}
-
-/* ── Lavender ────────────────── */
-:root[data-palette="lavender"] {
-  --bg: #f1eef5;
-  --ink: #1a181c;
-  --muted: #665e75;
-  --line: #cfc7db;
-  --accent: #6b4f9e;
-  --panel: #f7f4fa;
-  --code-bg: #dbd3e6;
-  --pre-bg: #1a1720;
-  --pre-ink: #eeebf5;
-}
-html.dark[data-palette="lavender"] {
-  --bg: #131116;
-  --ink: #e5deee;
-  --muted: #887ba0;
-  --line: #322b42;
-  --accent: #9a7fce;
-  --panel: #1c1924;
-  --code-bg: #2b2638;
-  --pre-bg: #0b0a10;
-  --pre-ink: #e7e1f2;
+html {
+  scrollbar-gutter: stable;
 }
 
 * {
@@ -350,8 +258,9 @@ li + li {
 }
 
 blockquote {
-  max-width: 68ch;
+  max-width: 100%;
   margin-left: 0.5rem;
+  margin-right: 0.5rem;
   padding: 0.6rem 1.25rem;
   border-left: 4px solid var(--accent);
   background: var(--panel);
@@ -366,7 +275,7 @@ blockquote p {
 
 .content img {
   max-width: 100%;
-  max-height: 45vh;
+  max-height: 60vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -376,6 +285,7 @@ blockquote p {
 
 figure {
   margin: 0;
+  text-align: center;
 }
 
 .lede {

@@ -6,6 +6,7 @@
     <title>{{ title or "Coherence" }}</title>
     <meta name="description" content="{{ description or "A bounded-claim machine for software engineering." }}">
     <link rel="stylesheet" href="/assets/style.css?v={{ cssHash }}">
+    <link rel="stylesheet" href="/assets/palettes.css">
     <script>
       (function() {
         var theme = localStorage.getItem("theme");
@@ -96,7 +97,7 @@
         localStorage.setItem("theme", isDark ? "dark" : "light");
       }
 
-      var palettes = ["default", "slate", "forest", "rust", "lavender"];
+      var palettes = ["1", "2", "3"];
 
       function randomPalette() {
         var html = document.documentElement;
