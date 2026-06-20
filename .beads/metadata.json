@@ -1,0 +1,7 @@
+{
+  "database": "dolt",
+  "backend": "dolt",
+  "dolt_mode": "embedded",
+  "dolt_database": "usecoherence_dev",
+  "project_id": "c25d57d7-5699-4f3f-adff-a2a0be3ef18d"
+}
