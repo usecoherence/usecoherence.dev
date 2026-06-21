@@ -10,3 +10,4 @@ description: Raw notes and design sketches for Coherence.
 - [Built-in distribution](/ideas/built-in-distribution/)
 - [Changelists over Dolt](/ideas/changelists-over-dolt/)
 - [Coherence Hub](/ideas/coherence-hub/)
+- [Help falsify Coherence](/ideas/help-falsify-coherence/)
