@@ -33,4 +33,12 @@ Specs describe intent. Plans execute checks. Runs produce evidence. Humans revie
   </a>
 </div>
 
+## Help falsify Coherence
+
+I'm not looking for encouragement. I'm looking for prior art, failed attempts, sharp objections, and reasons this idea may be wrong.
+
+If Coherence reminds you of something — Intentional Software, MDE, TCKs, traceability matrices, BDD, requirements tools, internal platform workflows, anything — please tell me.
+
+[Read the falsification request →](/ideas/help-falsify-coherence/)
+
 [Read the docs](/docs/)
