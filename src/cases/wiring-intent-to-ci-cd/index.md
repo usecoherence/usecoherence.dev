@@ -279,7 +279,10 @@ coherence_slice! {
             ac "accepts-valid-url" {
                 title: "Valid URLs are accepted"
 
-                intent: "When the user submits a valid URL using an allowed scheme, the system persists it and returns a short URL."
+                intent: """
+                    When the user submits a valid URL using an allowed scheme,
+                    the system persists it and returns a short URL.
+                    """
 
                 allowed_schemes: ["http", "https", "ftp"]
 
