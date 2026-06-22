@@ -14,7 +14,7 @@ They look like CLI commands, tests, database migrations, model defaults, parser 
 
 Coherence starts with three primitives:
 
-```text
+```coh
 Spec = promise the system makes
 AC   = falsifiable claim under that promise
 Evidence = executable proof linked to the claim
@@ -155,7 +155,7 @@ The bootstrap recovery explicitly uses this routing discipline: build inventory,
 
 The pipeline looks like this:
 
-```text
+```coh
 codebase
   ↓
 inventory
@@ -363,7 +363,7 @@ The user sees the generated id.
 
 But the actual rule is deeper:
 
-```text
+```coh
 AC identity generation belongs to the AC model lifecycle.
 ```
 
@@ -451,7 +451,7 @@ Otherwise every finding becomes a flat pile.
 
 The bootstrap catalog uses:
 
-```text
+```coh
 FOUNDATION  → domain models + infrastructure contracts
 MODULE      → bounded capabilities using foundation models
 COMPONENT   → concrete adapters
