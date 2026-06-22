@@ -22,3 +22,9 @@ npm run deploy   # build + rsync to pgs.sh
 
 - Site: https://usecoherence.dev
 - Source: https://github.com/usecoherence/coherence
+
+## Support
+
+[Support Coherence on OpenCollective](https://opencollective.com/coherence)
+
+GitHub Sponsors is pending. For now, you can support Coherence through OpenCollective.

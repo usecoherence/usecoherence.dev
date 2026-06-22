@@ -253,3 +253,31 @@
 .site-footer a:hover {
   color: var(--accent);
 }
+
+.footer-sponsor {
+  margin-top: 1.25rem;
+}
+
+.sponsor-btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent) !important;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.sponsor-btn:hover {
+  background: color-mix(in oklab, var(--accent), var(--bg) 85%);
+  border-color: var(--accent);
+}
+
+.sponsor-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  max-width: none;
+}
