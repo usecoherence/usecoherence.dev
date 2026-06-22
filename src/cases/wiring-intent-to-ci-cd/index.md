@@ -272,25 +272,27 @@ But that change should be explicit.
 
 You write a changelist:
 
-```txt
-changelist "allow-ftp-urls" {
-  spec "product/url-shortener/create-short-url" {
-    ac "accepts-valid-url" {
-      title "Valid URLs are accepted"
+```rust
+coherence_slice! {
+    changelist "allow-ftp-urls" {
+        spec "product/url-shortener/create-short-url" {
+            ac "accepts-valid-url" {
+                title: "Valid URLs are accepted"
 
-      intent """
-      When the user submits a valid URL using an allowed scheme,
-      the system persists it and returns a short URL.
-      """
+                intent: """
+When the user submits a valid URL using an allowed scheme,
+the system persists it and returns a short URL.
+"""
 
-      allowed_schemes ["http", "https", "ftp"]
+                allowed_schemes: ["http", "https", "ftp"]
 
-      links {
-        implemented_by file "app/models/short_url.rb"
-        verified_by test "bundle exec rspec spec/requests/short_urls_spec.rb:4"
-      }
+                links {
+                    implemented_by file "app/models/short_url.rb"
+                    verified_by test "bundle exec rspec spec/requests/short_urls_spec.rb:4"
+                }
+            }
+        }
     }
-  }
 }
 ```
 
