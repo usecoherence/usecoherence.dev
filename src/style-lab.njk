@@ -109,8 +109,7 @@ Use this page to check whether the site palette is readable. Toggle theme and pa
 
   <h2>Coherence DSL</h2>
 
-```coh
-SPEC product/url-shortener/create-short-url
+<pre class="language-coh"><code class="language-coh">SPEC product/url-shortener/create-short-url
 
 AC accepts-valid-http-url
 AC rejects-invalid-url
@@ -118,8 +117,7 @@ AC generates-unique-short-code
 
 EVIDENCE bundle exec rspec spec/requests/short_urls_spec.rb:12
 
-FAIL RSpec failed
-```
+FAIL RSpec failed</code></pre>
 
   <h2>Real UI sample</h2>
 
