@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title or "Coherence" }}</title>
     <meta name="description" content="{{ description or "A bounded-claim machine for software engineering." }}">
-    <link rel="stylesheet" href="/assets/style.css?v={{ cssHash }}">
+    {% for css in cssFiles %}
+    <link rel="stylesheet" href="/assets/{{ css }}?v={{ cssHash }}">
+    {% endfor %}
     <link rel="stylesheet" href="/assets/palettes.css">
     <script>
       (function() {

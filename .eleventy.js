@@ -1,11 +1,14 @@
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
 
-const cssHash = createHash("md5")
-  .update(readFileSync("src/assets/style.css"))
-  .digest("hex")
-  .slice(0, 8);
+const cssFiles = ["base.css", "layout.css", "content.css", "prism.css"];
+const cssHash = createHash("md5");
+for (const f of cssFiles) {
+  cssHash.update(readFileSync("src/assets/" + f));
+}
+const hash = cssHash.digest("hex").slice(0, 8);
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight, {
@@ -30,7 +33,8 @@ export default function (eleventyConfig) {
       };
     },
   });
-  eleventyConfig.addGlobalData("cssHash", cssHash);
+  eleventyConfig.addGlobalData("cssHash", hash);
+  eleventyConfig.addGlobalData("cssFiles", cssFiles);
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/_headers");
 

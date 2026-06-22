@@ -1,0 +1,123 @@
+/* Prism theme — warm, low-contrast */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #8b8069;
+}
+.token.punctuation {
+  color: #b0a18b;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #e8a87c;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #b5d48a;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #e0c080;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #d4918a;
+}
+.token.function,
+.token.class-name {
+  color: #8ab8d4;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #e8c47c;
+}
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+
+html.dark .token.comment,
+html.dark .token.prolog,
+html.dark .token.doctype,
+html.dark .token.cdata {
+  color: #7a6f5a;
+}
+html.dark .token.punctuation {
+  color: #9a8c77;
+}
+html.dark .token.property,
+html.dark .token.tag,
+html.dark .token.boolean,
+html.dark .token.constant,
+html.dark .token.symbol,
+html.dark .token.deleted {
+  color: #e8986a;
+}
+html.dark .token.selector,
+html.dark .token.attr-name,
+html.dark .token.string,
+html.dark .token.char,
+html.dark .token.builtin,
+html.dark .token.inserted {
+  color: #9bc47a;
+}
+html.dark .token.operator,
+html.dark .token.entity,
+html.dark .token.url,
+html.dark .language-css .token.string,
+html.dark .style .token.string {
+  color: #c8b070;
+}
+html.dark .token.atrule,
+html.dark .token.attr-value,
+html.dark .token.keyword {
+  color: #c4817a;
+}
+html.dark .token.function,
+html.dark .token.class-name {
+  color: #7aa8c4;
+}
+html.dark .token.regex,
+html.dark .token.important,
+html.dark .token.variable {
+  color: #d0b06c;
+}
+
+/* Coherence semantic highlighting */
+.language-coh .token.keyword {
+  color: #ff6ec7;
+  font-weight: 700;
+}
+
+.language-coh .token.symbol {
+  color: #7ee787;
+}
+
+.language-coh .token.url {
+  color: #8ec7ff;
+}
+
+.language-coh .token.important {
+  color: #ff5f57;
+  font-weight: 700;
+}
