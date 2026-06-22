@@ -8,7 +8,28 @@ const cssHash = createHash("md5")
   .slice(0, 8);
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(syntaxHighlight, {
+    init: function ({ Prism }) {
+      Prism.languages.coh = {
+        status: {
+          pattern: /\b(PASS|FAIL|WARN|BROKEN|UNMAPPED)\b/,
+          alias: "important",
+        },
+        entity: {
+          pattern: /\b(SPEC|AC|EVIDENCE|INTENT|LINKS)\b/,
+          alias: "keyword",
+        },
+        path: {
+          pattern: /\b(?:app|spec|test|src|lib|crates|packages)\/[\w./-]+\b/,
+          alias: "url",
+        },
+        slug: {
+          pattern: /\b[a-z][a-z0-9]*(?:[-/][a-z0-9]+)+\b/,
+          alias: "symbol",
+        },
+      };
+    },
+  });
   eleventyConfig.addGlobalData("cssHash", cssHash);
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/_headers");

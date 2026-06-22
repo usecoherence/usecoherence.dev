@@ -44,13 +44,13 @@ The short URL redirects to the original URL.
 
 That promise becomes a spec:
 
-```txt
+```coh
 SPEC product/url-shortener/create-short-url
 ```
 
 Then we add acceptance criteria:
 
-```txt
+```coh
 AC accepts-valid-http-url
 AC rejects-invalid-url
 AC generates-unique-short-code
@@ -126,7 +126,7 @@ Run those links in CI.
 
 Coherence adds a graph edge between the claim and the evidence.
 
-```txt
+```coh
 SPEC product/url-shortener/create-short-url
   AC rejects-invalid-url
     implemented_by app/controllers/short_urls_controller.rb#create
@@ -196,7 +196,7 @@ where code_artifacts.path = 'app/models/short_url.rb';
 
 That produces:
 
-```txt
+```coh
 product/url-shortener/create-short-url
   AC accepts-valid-http-url
     bundle exec rspec spec/requests/short_urls_spec.rb:4
@@ -226,17 +226,17 @@ Bad output:
 
 Better output:
 
-```txt
-Broken claim:
+```coh
+BROKEN claim:
 
 SPEC product/url-shortener/create-short-url
 AC   rejects-invalid-url
 
-Intent:
+INTENT:
 When the user submits something that is not a valid http/https URL,
 the system rejects it with a useful validation error and does not persist it.
 
-Evidence:
+EVIDENCE:
 bundle exec rspec spec/requests/short_urls_spec.rb:12
 
 Changed implementation:
@@ -324,13 +324,13 @@ Coherence should not pretend everything is fine.
 
 It should report:
 
-```txt
-Unmapped code change:
+```coh
+UNMAPPED code change:
 
 app/services/short_code_generator.rb
 
 No linked ACs.
-No linked evidence.
+No linked EVIDENCE.
 No known product/system/foundation claim owns this change.
 ```
 
@@ -366,7 +366,7 @@ Which claims use this test as evidence?
 
 Output:
 
-```txt
+```coh
 Evidence changed:
 
 spec/requests/short_urls_spec.rb
@@ -428,7 +428,7 @@ Did behavior change without a spec changelist?
 
 Example PR summary:
 
-```txt
+```coh
 Coherence report
 
 Changed files:
@@ -478,7 +478,7 @@ Sometimes it confidently preserves the wrong thing.
 
 With Coherence, the agent gets a slice:
 
-```txt
+```coh
 You are changing URL validation.
 
 Relevant claims:
@@ -529,7 +529,7 @@ And when behavior changes, the human or agent must make the intent change explic
 
 That is the trust boundary:
 
-```txt
+```coh
 promise
 → claim
 → implementation

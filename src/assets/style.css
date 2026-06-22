@@ -348,6 +348,24 @@ pre code {
   background: transparent;
 }
 
+.language-coh .token.keyword {
+  color: #ff6ec7;
+  font-weight: 700;
+}
+
+.language-coh .token.symbol {
+  color: #7ee787;
+}
+
+.language-coh .token.url {
+  color: #8ec7ff;
+}
+
+.language-coh .token.important {
+  color: #ff5f57;
+  font-weight: 700;
+}
+
 .toc {
   display: none;
 }

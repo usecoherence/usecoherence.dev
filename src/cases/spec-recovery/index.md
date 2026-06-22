@@ -65,7 +65,7 @@ If an agent changes the CLI and breaks one of them, a user will notice.
 
 So we can recover this:
 
-```text
+```coh
 SPEC product/cli/ac
   AC ac-add-requires-existing-spec
   AC ac-add-requires-title
@@ -131,7 +131,7 @@ This should not become a product AC.
 
 At most, it is evidence for another claim:
 
-```text
+```coh
 SYSTEM system/process/test-isolation
   AC tests run against isolated project catalogs
     verified_by tests/support/test_world.rs
@@ -194,7 +194,7 @@ Is this accidental?
 
 That produces a routed row:
 
-```text
+```coh
 final_spec: product/cli/ac
 group: ac-add
 action: promoted_to_ac
@@ -266,7 +266,7 @@ That's not enough.
 
 The recovered claim is:
 
-```text
+```coh
 SPEC product/cli/ac
   AC ac-add-rejects-unknown-spec
     intent: Creating an AC for a missing spec fails with a not-found error.
@@ -307,7 +307,7 @@ The CLI may expose this behavior, but the real promise belongs lower.
 
 Recovered claim:
 
-```text
+```coh
 SPEC foundation/domain/model/acceptance-criteria
   AC new-acs-have-default-review-mode
     intent: New ACs default to manual review when no review mode is provided.
@@ -369,7 +369,7 @@ AC identity generation belongs to the AC model lifecycle.
 
 So the routing decision is:
 
-```text
+```coh
 original: product/ac-authoring
 observed: CLI can generate an AC id when slug is omitted
 action: moved_to_lower_level
@@ -416,7 +416,7 @@ But not all of it should become ACs.
 
 Bad recovery:
 
-```text
+```coh
 PRODUCT
   AC TestWorld creates a temporary project
   AC TestWorld configures environment variables
@@ -425,7 +425,7 @@ PRODUCT
 
 Better recovery:
 
-```text
+```coh
 SYSTEM system/process/test-isolation
   AC verification uses isolated project catalogs
     evidence:
@@ -477,7 +477,7 @@ So a raw inventory can become a reviewable graph.
 
 Example:
 
-```text
+```coh
 raw finding:
   verify-spec prints per-AC outcome
 
@@ -509,7 +509,7 @@ After routing, the tree is no longer "files and functions".
 
 It becomes behavior:
 
-```text
+```coh
 PRODUCT
   product/cli/spec
     spec-add
@@ -561,7 +561,7 @@ Possible.
 
 Instead of reading every line of code, a reviewer can ask:
 
-```text
+```coh
 Is this behavior real?
 Is this claim worded correctly?
 Is it at the right level?
@@ -579,7 +579,7 @@ Does this generated documentation look okay?
 
 The current recovered bootstrap catalog has:
 
-```text
+```coh
 252 ledger rows
 219 promoted ACs
 27 evidence-only rows
@@ -598,7 +598,7 @@ Because the system found 252 pieces of behavioral evidence and did not treat the
 
 This is what the split means:
 
-```text
+```coh
 promoted_to_ac
   This is a real claim the system should continue to satisfy.
 
@@ -644,7 +644,7 @@ Sometimes the guess is cursed.
 
 With Coherence, the agent gets a slice:
 
-```text
+```coh
 Change request:
   Improve verify-spec output.
 
@@ -685,7 +685,7 @@ Did the agent break anything obvious?
 
 A Coherence-style review asks:
 
-```text
+```coh
 Which ACs changed?
 Which evidence links changed?
 Did new behavior get a new claim?
@@ -696,7 +696,7 @@ Did a test still verify the claim it says it verifies?
 
 Example PR note:
 
-```text
+```coh
 This patch changes verify-spec output.
 
 Affected ACs:
@@ -738,7 +738,7 @@ It does not replace code review.
 
 It adds a durable relationship:
 
-```text
+```coh
 SPEC
   has AC
     implemented_by code
@@ -847,7 +847,7 @@ Docs are not enough.
 
 The durable object is the relationship:
 
-```text
+```coh
 promise
 → claim
 → implementation
