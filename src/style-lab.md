@@ -11,7 +11,7 @@ Use this page to check whether the site palette is readable. Toggle theme and pa
 
 <script>
   const themeTokens = ["--bg", "--ink", "--muted", "--line", "--accent", "--panel", "--code-bg", "--pre-bg", "--pre-ink"];
-  const codeTokens = ["--token-comment", "--token-punctuation", "--token-property", "--token-selector", "--token-operator", "--token-atrule", "--token-function", "--token-regex", "--token-coh-keyword", "--token-coh-symbol", "--token-coh-url", "--token-coh-status"];
+  const codeTokens = ["--code-keyword", "--code-symbol", "--code-path", "--code-status", "--code-string", "--code-comment", "--semantic-success", "--semantic-warning", "--semantic-danger", "--semantic-info"];
 
   function renderTokens(selector, tokens) {
     const el = document.querySelector(selector);
@@ -109,7 +109,8 @@ Use this page to check whether the site palette is readable. Toggle theme and pa
 
   <h2>Coherence DSL</h2>
 
-<pre class="language-coh"><code class="language-coh">SPEC product/url-shortener/create-short-url
+```coh
+SPEC product/url-shortener/create-short-url
 
 AC accepts-valid-http-url
 AC rejects-invalid-url
@@ -117,7 +118,8 @@ AC generates-unique-short-code
 
 EVIDENCE bundle exec rspec spec/requests/short_urls_spec.rb:12
 
-FAIL RSpec failed</code></pre>
+FAIL RSpec failed
+```
 
   <h2>Real UI sample</h2>
 

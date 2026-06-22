@@ -1,13 +1,36 @@
-/* Prism theme — derived from palette variables */
+/* Prism theme — palette-generated vars with hardcoded fallbacks */
+
+.language-coh .token.keyword {
+  color: var(--code-keyword, #c97ee8);
+  font-weight: 700;
+}
+
+.language-coh .token.symbol {
+  color: var(--code-symbol, #7ee787);
+}
+
+.language-coh .token.url {
+  color: var(--code-path, #7ec7e8);
+}
+
+.language-coh .token.important {
+  color: var(--code-status, #e87e7e);
+  font-weight: 700;
+}
+
+.code-toolbar {
+  position: relative;
+}
+
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--token-comment, #8b8069);
+  color: var(--code-comment, #8b8069);
 }
 
 .token.punctuation {
-  color: var(--token-punctuation, #b0a18b);
+  color: #b0a18b;
 }
 
 .token.property,
@@ -17,7 +40,7 @@
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: var(--token-property, #e8a87c);
+  color: #e8a87c;
 }
 
 .token.selector,
@@ -26,7 +49,7 @@
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: var(--token-selector, #b5d48a);
+  color: #b5d48a;
 }
 
 .token.operator,
@@ -34,24 +57,24 @@
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: var(--token-operator, #e0c080);
+  color: #e0c080;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: var(--token-atrule, #d4918a);
+  color: var(--code-keyword, #d4918a);
 }
 
 .token.function,
 .token.class-name {
-  color: var(--token-function, #8ab8d4);
+  color: #8ab8d4;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: var(--token-regex, #e8c47c);
+  color: #e8c47c;
 }
 
 .token.bold {
@@ -64,23 +87,4 @@
 
 .token.entity {
   cursor: help;
-}
-
-/* Coherence semantic highlighting */
-.language-coh .token.keyword {
-  color: var(--token-coh-keyword, #ff6ec7);
-  font-weight: 700;
-}
-
-.language-coh .token.symbol {
-  color: var(--token-coh-symbol, #7ee787);
-}
-
-.language-coh .token.url {
-  color: var(--token-coh-url, #8ec7ff);
-}
-
-.language-coh .token.important {
-  color: var(--token-coh-status, #ff5f57);
-  font-weight: 700;
 }

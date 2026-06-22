@@ -10,6 +10,16 @@
   --code-bg: #FFE0C5;
   --pre-bg: #007979;
   --pre-ink: #FFF0E4;
+  --semantic-success: #0b4800;
+  --semantic-warning: #563200;
+  --semantic-danger: #700a12;
+  --semantic-info: #00445a;
+  --code-comment: #4f3329;
+  --code-keyword: #571a64;
+  --code-symbol: #0b4800;
+  --code-path: #00455f;
+  --code-status: #75000a;
+  --code-string: #463a00;
 }
 
 html.dark[data-palette="1"] {
@@ -22,6 +32,16 @@ html.dark[data-palette="1"] {
   --code-bg: #2B5748;
   --pre-bg: #273338;
   --pre-ink: #9CB080;
+  --semantic-success: #8ebd84;
+  --semantic-warning: #c9a971;
+  --semantic-danger: #e9938c;
+  --semantic-info: #7ab9cd;
+  --code-comment: #c3a79e;
+  --code-keyword: #cc98d8;
+  --code-symbol: #8ebd84;
+  --code-path: #6fbad2;
+  --code-status: #ef9088;
+  --code-string: #b8af7c;
 }
 
 :root[data-palette="2"] {
@@ -34,6 +54,16 @@ html.dark[data-palette="1"] {
   --code-bg: #FFF2DB;
   --pre-bg: #211832;
   --pre-ink: #FFFAF3;
+  --semantic-success: #005400;
+  --semantic-warning: #7c0000;
+  --semantic-danger: #a30000;
+  --semantic-info: #00478d;
+  --code-comment: #6a1b00;
+  --code-keyword: #750096;
+  --code-symbol: #005400;
+  --code-path: #00459a;
+  --code-status: #a30000;
+  --code-string: #5a3100;
 }
 
 html.dark[data-palette="2"] {
@@ -46,6 +76,16 @@ html.dark[data-palette="2"] {
   --code-bg: #412B6B;
   --pre-bg: #211832;
   --pre-ink: #F25912;
+  --semantic-success: #22d200;
+  --semantic-warning: #f89500;
+  --semantic-danger: #ff2644;
+  --semantic-info: #00c7ff;
+  --code-comment: #e5987d;
+  --code-keyword: #fc51ff;
+  --code-symbol: #22d200;
+  --code-path: #00c9ff;
+  --code-status: #ff2644;
+  --code-string: #cdae00;
 }
 
 :root[data-palette="3"] {
@@ -58,6 +98,16 @@ html.dark[data-palette="2"] {
   --code-bg: #AEE2FF;
   --pre-bg: #222831;
   --pre-ink: #D9F9DF;
+  --semantic-success: #004d00;
+  --semantic-warning: #622800;
+  --semantic-danger: #860000;
+  --semantic-info: #00466a;
+  --code-comment: #582d1e;
+  --code-keyword: #640079;
+  --code-symbol: #004d00;
+  --code-path: #004771;
+  --code-status: #8d0000;
+  --code-string: #4c3900;
 }
 
 html.dark[data-palette="3"] {
@@ -70,4 +120,14 @@ html.dark[data-palette="3"] {
   --code-bg: #393E46;
   --pre-bg: #222831;
   --pre-ink: #DFD0B8;
+  --semantic-success: #9eb699;
+  --semantic-warning: #bcac90;
+  --semantic-danger: #cfa19d;
+  --semantic-info: #95b4be;
+  --code-comment: #b9aaa5;
+  --code-keyword: #bea3c4;
+  --code-symbol: #9eb699;
+  --code-path: #91b5c1;
+  --code-status: #d2a09b;
+  --code-string: #b3af95;
 }
