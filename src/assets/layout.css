@@ -238,3 +238,18 @@
     grid-template-columns: 1fr;
   }
 }
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1.75rem 3rem;
+}
+
+.site-footer a {
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}
