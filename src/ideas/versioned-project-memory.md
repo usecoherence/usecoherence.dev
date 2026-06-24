@@ -62,24 +62,24 @@ Example:
 
 ```rust
 coherence_slice! {
-    changelist "clipboard-api-security" {
-        reason: "Clipboard write requires explicit user intent and browser permission model."
+    changelist "payment-api-auth" {
+        reason: "Payment API requests require an authenticated client and explicit permission checks."
 
-        source rfc: "Clipboard API and Events"
-        source doc: "Internal security review: browser permissions"
+        source rfc: "Internal API contract: Payment API"
+        source doc: "Internal security review: payment authorization"
 
-        spec "Clipboard writes require explicit user action" {
+        spec "Payment API requires authenticated client" {
             level: System
             status: Active
 
-            ac "Reject background clipboard write" {
+            ac "Reject unauthenticated payment request" {
                 review_mode: Automated
                 risk: High
                 concerns: [Security]
 
                 links {
-                    implemented_by file "src/browser/clipboard/write.ts"
-                    verified_by test "tests/clipboard/write_requires_user_action.test.ts"
+                    implemented_by file "src/payment/api/create_payment.ts"
+                    verified_by test "tests/payment/create_payment_requires_auth.test.ts"
                 }
             }
         }
@@ -87,7 +87,7 @@ coherence_slice! {
         memory "Decision accepted after security review" {
             kind: decision
             actor: "security-review"
-            reason: "Background clipboard writes create user-trust and permission-model risk."
+            reason: "Unauthenticated payment requests create direct financial and audit risk."
         }
 
         context {}
@@ -193,9 +193,11 @@ CALL DOLT_ADD(
 
 CALL DOLT_COMMIT(
   '-m',
-  'decision: require explicit user action for clipboard writes'
+  'decision: require authenticated client for payment API'
 );
 ```
+
+This is not theoretical. Dolt already supports exactly this workflow — `DOLT_ADD()` stages tables, `DOLT_COMMIT()` snapshots the working set into a new commit with a message ([docs](https://docs.dolthub.com/sql-reference/version-control/dolt-sql-procedures)). The same procedures work for any schema: specs, acceptance criteria, knowledge sources, memory events — all versioned in a single transaction. Dolt's vector-index documentation shows these snapshots can branch experiments over vector datasets and roll back changed search behavior, confirming the pattern: vectors are the recall index, Dolt is the versioned source of truth.
 
 That Dolt commit is now a snapshot of the project brain.
 
@@ -209,7 +211,7 @@ The whole reasoning state.
 
 A year later, someone asks:
 
-> Why do we reject background clipboard writes?
+> Why do we reject unauthenticated payment requests?
 
 Coherence can query the current graph:
 
@@ -222,7 +224,7 @@ SELECT
 FROM memory_events m
 JOIN memory_event_links l ON l.event_id = m.id
 WHERE l.target_type = 'acceptance_criterion'
-  AND l.target_id = 'ac.clipboard.reject_background_write';
+  AND l.target_id = 'ac.payment.reject_unauthenticated_request';
 ```
 
 But the more interesting query is historical:
@@ -230,7 +232,7 @@ But the more interesting query is historical:
 ```sql
 SELECT *
 FROM acceptance_criteria AS OF 'HEAD~100'
-WHERE id = 'ac.clipboard.reject_background_write';
+WHERE id = 'ac.payment.reject_unauthenticated_request';
 ```
 
 Or:
@@ -238,7 +240,7 @@ Or:
 ```sql
 SELECT *
 FROM dolt_history_acceptance_criteria
-WHERE id = 'ac.clipboard.reject_background_write'
+WHERE id = 'ac.payment.reject_unauthenticated_request'
 ORDER BY commit_date;
 ```
 
@@ -269,7 +271,7 @@ Semantic search is still useful.
 
 You want to ask:
 
-> Why did we change clipboard behavior?
+> Why did we change payment authorization behavior?
 
 And find related decisions even if the exact words do not match.
 
