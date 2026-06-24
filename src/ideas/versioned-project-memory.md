@@ -14,9 +14,7 @@ Not "documentation".
 Not "Slack history".
 Not "ask Pete, he left two years ago".
 
-Actual operational memory.
-
-Memory that can answer:
+Actual operational that can answer:
 
 > Why did we build this?
 
@@ -201,9 +199,7 @@ This is not theoretical. Dolt already supports exactly this workflow — `DOLT_A
 
 That Dolt commit is now a snapshot of the project brain.
 
-Not just the code.
-Not just the specs.
-Not just the docs.
+Not just the code, specs, docs.
 
 The whole reasoning state.
 
@@ -295,7 +291,7 @@ The vector index is just the fast recall path.
 
 The answer still comes from versioned records.
 
-## Why This Matters
+## Why This Is Amazing
 
 Most engineering systems preserve artifacts.
 
@@ -303,7 +299,7 @@ Git preserves files.
 CI preserves logs.
 Issue trackers preserve tasks.
 Docs preserve narratives.
-Slack preserves noise.
+Slack preserves noise 🤣
 
 But the actual project brain lives between them.
 
@@ -336,10 +332,6 @@ Now a reviewer can ask:
 > This external knowledge changed. Which product decisions depend on it?
 
 ## Killer Feature
-
-The killer feature is not "AI memory".
-
-The killer feature is:
 
 > time travel for project understanding.
 
