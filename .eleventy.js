@@ -43,6 +43,7 @@ export default function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/proofs");
   eleventyConfig.addPassthroughCopy("src/_headers");
 
   eleventyConfig.addFilter("split", function(str, sep) {
