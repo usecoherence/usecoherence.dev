@@ -35,6 +35,13 @@ export default function (eleventyConfig) {
   });
   eleventyConfig.addGlobalData("cssHash", hash);
   eleventyConfig.addGlobalData("cssFiles", cssFiles);
+
+  eleventyConfig.addCollection("ideas", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/ideas/*.md")
+      .filter(p => p.page.url !== "/ideas/")
+      .sort((a, b) => a.page.url.localeCompare(b.page.url));
+  });
+
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/_headers");
 

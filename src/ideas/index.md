@@ -6,8 +6,6 @@ description: Raw notes and design sketches for Coherence.
 
 # Ideas
 
-- [Agent workflows](/ideas/agent-workflows/)
-- [Built-in distribution](/ideas/built-in-distribution/)
-- [Changelists over Dolt](/ideas/changelists-over-dolt/)
-- [Coherence Hub](/ideas/coherence-hub/)
-- [Help falsify Coherence](/ideas/help-falsify-coherence/)
+{%- for idea in collections.ideas %}
+- [{{ idea.data.title }}]({{ idea.page.url }}){% if idea.data.description %} — {{ idea.data.description }}{% endif %}
+{%- endfor %}
